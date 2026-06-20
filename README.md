@@ -1,15 +1,6 @@
 # Expense Tracker 💸
 
 A full-stack MERN (MongoDB, Express, React, Node.js) application to manage and track your personal expenses with authentication, category-wise tracking, and dashboards.
-
----
-
-## 🚀 Live Links
-
-- 🔗 **Frontend (Vercel)**: [https://expense-tracker-topaz-six.vercel.app](https://expense-tracker-topaz-six.vercel.app)
-- 🔗 **Backend (Render)**: [https://expense-tracker-ooym.onrender.com](https://expense-tracker-ooym.onrender.com)
-- 🔗 **GitHub Repository**: [https://github.com/sharmaHarshit2000/expense-tracker](https://github.com/sharmaHarshit2000/expense-tracker)
-
 ---
 
 ## 📦 Features
@@ -207,7 +198,6 @@ expense-tracker/
 
 ## 🧑‍💻 Author
 
-**Harshit Sharma**  
-📧 harshitsharma9989@gmail.com  
-📞 9369966830  
-🔗 [GitHub Profile](https://github.com/sharmaHarshit2000)
+**Pawan Patil**  
+📧 patilpawan2108@gmail.com  
+🔗 [GitHub Profile](https://github.com/pawanpatil2108)
