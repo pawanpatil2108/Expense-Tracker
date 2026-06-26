@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Source code checked out successfully.'
+                checkout scm
             }
         }
 
@@ -16,6 +16,40 @@ pipeline {
                 sh 'npm -v'
                 sh 'docker --version'
             }
+        }
+
+        stage('Install Frontend Dependencies') {
+            steps {
+                dir('frontend') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                dir('frontend') {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Install Backend Dependencies') {
+            steps {
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Application Build Successful!'
+        }
+
+        failure {
+            echo 'Application Build Failed!'
         }
     }
 }
