@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        NODE_OPTIONS = "--max-old-space-size=512"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -44,6 +48,10 @@ pipeline {
     }
 
     post {
+        always {
+            cleanWs()
+        }
+
         success {
             echo 'Application Build Successful!'
         }
