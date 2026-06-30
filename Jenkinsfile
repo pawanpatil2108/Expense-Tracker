@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODE_OPTIONS = "--max-old-space-size=512"
+        NODE_OPTIONS = '--max-old-space-size=1024'
     }
 
     stages {
@@ -38,6 +38,14 @@ pipeline {
             }
         }
 
+        stage('Build Frontend Docker Image') {
+            steps {
+                dir('frontend') {
+                    sh 'docker build -t expense-frontend:latest .'
+                }
+            }
+        }
+
         stage('Install Backend Dependencies') {
             steps {
                 dir('backend') {
@@ -45,13 +53,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Backend Docker Image') {
+            steps {
+                dir('backend') {
+                    sh 'docker build -t expense-backend:latest .'
+                }
+            }
+        }
     }
 
     post {
-        always {
-            cleanWs()
-        }
-
         success {
             echo 'Application Build Successful!'
         }
